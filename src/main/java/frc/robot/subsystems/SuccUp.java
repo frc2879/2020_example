@@ -7,15 +7,31 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
-public class ExampleSubsystem extends SubsystemBase {
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import frc.robot.Constants;
+
+public class SuccUp extends SubsystemBase {
+
+  private final CANSparkMax succMotorSpark = new CANSparkMax(Constants.SUCC_MOTOR_CAN_ID, MotorType.kBrushless);
+  
   /**
    * Creates a new ExampleSubsystem.
    */
-  public ExampleSubsystem() {
+  public SuccUp() {
 
   }
+
+  /**
+   * Sucks. A lot.
+   */
+  public void succ() {
+    succMotorSpark.set(0.5);
+  }
+
+
 
   @Override
   public void periodic() {
